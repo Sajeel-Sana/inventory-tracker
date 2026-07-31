@@ -4,8 +4,7 @@ import cors from 'cors';
 import { prisma } from './db';
 
 const app = express();
-const PORT = 5000;
-
+const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json()); // Essential: Parses JSON request bodies coming from client
@@ -50,5 +49,5 @@ app.get('/api/items', async (req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
